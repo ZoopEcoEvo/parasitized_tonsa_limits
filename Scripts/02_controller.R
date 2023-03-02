@@ -1,23 +1,22 @@
 # Load in required packages
 library(rmarkdown)
+library(knitr)
 library(tidyverse)
+library(dabestr)
 
 #Determine which scripts should be run
-process_data = F #Runs data analysis 
-make_report = F #Runs project summary
+process_all_data = F #Runs data analysis 
+make_report = T #Runs project summary
 knit_manuscript = F #Compiles manuscript draft
 
-############################
-### Read in the RAW data ###
-############################
-
-if(process_data == T){
-  source(file = "Scripts/01_data_processing.R")
-}
+source(file = "Scripts/01_data_processing.R")
 
 ##################################
 ### Read in the PROCESSED data ###
 ##################################
+full_data = read.csv(file = "Output/Data/full_data.csv")
+ramp_record = read.csv(file = "Output/Data/ramp_record.csv")
+temp_record = read.csv(file = "Output/Data/temp_record.csv")
 
 if(make_report == T){
   render(input = "Output/Reports/report.Rmd", #Input the path to your .Rmd file here
