@@ -16,7 +16,7 @@ author:
     affiliation: University of Connecticut
     location: 
 abstract: "ABSTRACT HERE."
-keywords: "copepod, parasitism, thermal tolerance, CTmax"
+keywords: "copepod, parasitism, thermal tolerance, CTmax, meta-analysis"
 contact: "**Correspondance**: matthew.sasaki@uvm.edu" 
 current: "This preprint is current as of `r format(Sys.time(), '%B %d, %Y')`"
 repo: "**Code**: https://github.com/ZoopEcoEvo/tonsa_infected_CTmax"
@@ -49,11 +49,13 @@ While collecting a plankton sample from Key Largo Florida in late February 2023 
 knitr::include_graphics("../Background/Images/IMG_1347.jpeg") #Use this when filling in figures from analysis 
 ```
 
+# Methods and Results
+
 After collection, the contents of the plankton tow were maintained at 22 degrees C. An aquarium bubbler was used to ensure constant aeration. Mature *Acartia tonsa* females were sorted from the bulk contents of the plankton tow. Females with a bopyrid isopod larva attached to their prosome were set aside. Individual thermal limits were measured in batches of 10 (5 each, with and without isopods), as critical thermal maxima (CT~max~). During these assays, individuals were isolated in glass tubes with 10 mL of \_-um filtered seawater (collected from the same location as the copepods). These tubes were held in a plexiglass water bath, attached to a 20 L reservoir. The reservoir contained a 300 watt aquarium heater, which raised the temperature of the water in the reservoir at a constant rate of 0.1-0.3 degrees C per minute [@sasaki2021; @harada2019; @jiang2009]. An aquarium pump in the reservoir was used to flood the water bath, resulting in gradual warming of the water in the tubes. Copepods were continuously monitored until they ceased to respond to gentle stimulus (water movement caused by rotating the tube). The temperature at that point was recorded as the CT~max~. Four separate CT~max~ assays were run, one per day starting the day after copepods were collected.
 
 The CTmax values for the two groups (infected and non-infected) were compared using mean difference as an effect size estimate. Confidence intervals were estimated using non-parametric bootstrapping [@ho2019]. Since multiple replicate experiments were run and CTmax may have changed as time since collection increased, we also ran a linear mixed effects model, with CTmax modeled as a function of infection status with experimental replicate as a random effect.
 
-Contrary to expectations, we did not observe a decrease in thermal limits in the infected copepods (Figure 2). Instead, the observed effect of bopyrid parasitism on CT~max~ was slightly positive, with a confidence interval that strongly overlapped zero (mean difference: 0.102 [95CI -0.211; 0.353]). The linear mixed effect model also indicated no effect of bopyrid infestation. This result is strongly affected by three substantially lower thermal limits among the parasitized individuals. When these are removed, there is a small positive effect of infection (mean effect: 0.295 [95CI 0.0983; 0.509]). With the three low values removed, the linear mixed effects model also indicates an effect of bopyrid infestation on CTmax.
+Contrary to expectations, we did not observe a decrease in thermal limits in the infected copepods (Figure 2). Instead, the observed effect of bopyrid parasitism on CT~max~ was slightly positive, with a confidence interval that strongly overlapped zero (mean difference: 0.102; 95CI -0.211 - 0.353). The linear mixed effect model also indicated no effect of bopyrid infestation. This result is strongly affected by three parasitized individuals with substantially lower thermal limits. When these thermal limits are removed, there is a small positive effect of infection (mean effect: 0.295; 95CI 0.0983 - 0.509). With the three low values removed, the linear mixed effects model also indicates an effect of bopyrid infestation on CT~max~.
 
 ```{r, figure2, echo = F, out.width = "350px"}
 #| fig.cap = "Estimation plot showing observed CTmax values and the estimated effect of parasitism. The three low thermal limits that were excluded are shown as empty symbols, and are not included in the sample sizes."
@@ -61,9 +63,25 @@ Contrary to expectations, we did not observe a decrease in thermal limits in the
 knitr::include_graphics("../Output/Figures/affinity/Artboard1.png") #Use this when filling in figures from analysis 
 ```
 
-In both cases (no difference or a small increase in thermal limits), this is contrary to our expectations that bopyrid infestation would reduce copepod thermal limits. The pattern observed is strongly affected by whether we include or exclude three notably lower thermal limit measurements in the infested treatment. The attached bopyrids varied in size within this treatment. Assuming individuals are not switching hosts, this means that females with larger bopyrids are likely older than females with smaller bopyrids. The three individuals with particularly low thermal limits had larger bopyrids; the low thermal limits may therefore reflect the older age of these females. However, unfortunately without proper equipment we were unable to take photographs of these individuals and their bopyrids in order to measure lengths to test for a correlation between thermal limit and parasite size.
+Parasitism is widespread across taxa. In order to compare the effects we observed here with previous work, we also conducted a small meta-analysis. Potential studies were obtained with a Web of Science search for "(CTmax OR "upper thermal limit" OR "thermal tolerance") AND parasit\*" on March 6th, 2023. This yielded 132 results, which were individually screened for inclusion in the meta-analysis. In order to be included, a study must have reported CT~max~ values for both infected and uninfected host animals. We used strict inclusion criteria to maximize comparability (excluding studies that measured thermal limits in time to knockdown, or percent survivorship after static temperature exposure, etc.). A total of five previously published studies met these criteria. Mean thermal limits, standard deviations, and sample sizes were extracted from the study text or tables, or were manually calculated using the raw data. We then estimated standardized mean difference (SMD) and 95% confidence interval for each comparison between infected and non-infected animals. A negative SMD indicates that parasitism decreased thermal limits.
+
+All previously published studies report a negative effect of parasitism on CT~max~ (Figure 3). It's worth noting that the five previous studies included in this analysis all examined the effect of parasites on their final host, while *A. tonsa* is the intermediate host for this isopod. The different infection dynamics across parasite life stage might be expected to modify the effect of infection on host CT~max~.
+
+```{r, figure3, echo = F, out.width = "350px"}
+#| fig.cap = "A forest plot showing the standardized mean difference estimate for each comparison of CTmax for infected and non-infected hosts, along with the 95 percent confidence interval. The size of each point is proportional to the weight of each contrast. The diamond at the bottom of the plot summarizes the overall effect estimate. "
+
+knitr::include_graphics("../Output/Figures/markdown/forest-plot-1.pdf") #Use this when filling in figures from analysis 
+```
+
+# Discussion
+
+We observed that parasitism does not have a strong negative effect on the thermal limits of *Acartia tonsa* females. This was contrary to both our expectations and to the results of a small number of similar studies.
+
+The pattern observed is strongly affected by whether we include or exclude three notably lower thermal limit measurements in the infested treatment. The attached bopyrids varied in size within this treatment. Assuming individuals are not switching hosts, this means that females with larger bopyrids are likely older than females with smaller bopyrids. The three individuals with particularly low thermal limits had larger bopyrids; the low thermal limits may therefore reflect the older age of these females. Unfortunately we lacked the required equipment to take photographs of these individuals and their bopyrids while CTmax measurements were being made. We are therefore unable to test for this correlation between larval length and host CTmax.
 
 There are several potential explanations for an increase in thermal limits when parasitized. It's possible that HSP production is stimulated by infestation, thus priming copepods to respond to heat stress. Alternatively, previous work shows reduced respiration rates in *Acartia* infested by bopyrids. Reduced basal metabolisms may improve thermal tolerance. Reduced metabolism may also hinder the thermal stress response though if ATP limitation affects the production of HSPs.
+
+Parasites often have complex life cycles, relying on one or more intermediate hosts before infecting their final host. Parasitism, regardless of stage, often results in physiological changes to the host system. In a variable thermal environment, reduction of host thermal limits by infection could results in a strong disruption to the parasite's development if temperature fluctuations result in host mortality. It may be beneficial, therefore, for parasites to manipulate host thermal limits in such a way to make these disruptions less likely. Parasites may also manipulate host thermal physiology to directly benefit themselves. Aphids serving as a vector for a plant virus (analogous to an intermediate host), for example, had increased thermal limits, allowing them to exploit warmer microhabitats than competitors, aiding in the spread of the virus (REF). In animal parasites, shifts in host preference toward warmer temperatures may speed up parasite development (REF).
 
 \newpage
 

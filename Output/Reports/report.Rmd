@@ -129,7 +129,7 @@ Mean thermal limits, standard deviations, and sample sizes were extracted from t
 
 Below is the resulting forest plot, showing the SMD estimate for each comparison and the 95% confidence interval. The size of each point is proportional to the weight of each contrast. The diamond at the bottom of the plot summarizes the overall effect estimate. All previously published studies report a negative effect of parasitism on CTmax. It's worth noting that previous studies examined the effect of parasites on ultimate host CTmax, while *A. tonsa* is the intermediate host for this isopod. The different infection dynamics across parasite life stage might be expected to modify the effect of infection on host CTmax. A small number of other studies examining the effect of parasitism on other metrics of thermal tolerance also indicate an increase in thermal limits, so there is precedence for this effect. It would be interesting to re-check whether the reported positive effects also came from studies examining intermediate hosts.
 
-```{r forest-plot}
+```{r forest-plot, fig.width=7, fig.height=7}
 library(metafor)
 
 effects = escalc(measure = "SMD",

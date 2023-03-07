@@ -7,8 +7,8 @@ library(dabestr)
 #Determine which scripts should be run
 process_all_data = F #Runs data analysis 
 process_study_limits = F #Processes raw data from other studies for inclusion in the meta-analysis
-make_report = T #Runs project summary
-knit_manuscript = F #Compiles manuscript draft
+make_report = F #Runs project summary
+knit_manuscript = T #Compiles manuscript draft
 
 source(file = "Scripts/01_data_processing.R")
 
