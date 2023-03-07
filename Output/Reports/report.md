@@ -20,6 +20,9 @@ prosome. Given the important role *Acartia* copepods play in coastal
 systems, we wanted to test the hypothesis that infestation by bopyrid
 isopod larvae would reduce thermal limits in *Acartia tonsa*.
 
+![Example of mature female A. tonsa individual bearing a bopyrid isopod
+larva.](images/IMG_1347.jpeg)
+
 # Methods
 
 After collection, *Acartia tonsa* individuals were sorted from the bulk
