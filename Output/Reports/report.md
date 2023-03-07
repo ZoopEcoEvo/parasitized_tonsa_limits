@@ -1,14 +1,13 @@
 CTmax of bopyrid infested *Acartia tonsa*
 ================
-2023-03-06
+2023-03-07
 
 - <a href="#project-description" id="toc-project-description">Project
   Description</a>
 - <a href="#methods" id="toc-methods">Methods</a>
 - <a href="#results" id="toc-results">Results</a>
+  - <a href="#meta-analysis" id="toc-meta-analysis">Meta-Analysis</a>
 - <a href="#discussion" id="toc-discussion">Discussion</a>
-- <a href="#other-things-to-add" id="toc-other-things-to-add">Other things
-  to add</a>
 
 # Project Description
 
@@ -67,7 +66,11 @@ bop_eff = dabest(full_data,
 
 bop_diff = mean_diff(bop_eff)
 
-plot(bop_diff)
+plot(bop_diff, 
+     rawplot.ylim = c(35.2, 37.6),
+     rawplot.markersize = 4,
+     rawplot.ylabel = "CTmax (degrees C)",
+     palette = c("darkseagreen", "mediumpurple4"))
 ```
 
 <img src="../Figures/markdown/eff-size-1.png" style="display: block; margin: auto;" />
@@ -106,7 +109,11 @@ bop_eff = dabest(subset,
 
 bop_diff = mean_diff(bop_eff)
 
-plot(bop_diff)
+plot(bop_diff, 
+     rawplot.ylim = c(35.2, 37.6),
+     rawplot.markersize = 4,
+     rawplot.ylabel = "CTmax (degrees C)",
+     palette = c("darkseagreen", "mediumpurple4"))
 ```
 
 <img src="../Figures/markdown/subset-eff-size-1.png" style="display: block; margin: auto;" />
@@ -123,6 +130,35 @@ kable(car::Anova(sub_iso.model))
 |         |   Chisq |  Df | Pr(\>Chisq) |
 |:--------|--------:|----:|------------:|
 | bopyrid | 7.44407 |   1 |   0.0063646 |
+
+## Meta-Analysis
+
+I surveyed the literature to find other studies that examined the effect
+of parasitism on CTmax. I used strict inclusion criteria to maximize
+comparability (excluding studies that measured thermal limits in time to
+knockdown, or percent survivorship after static temperature exposure,
+etc.). A total of five previously published studies met these criteria.
+
+``` r
+library(metafor)
+
+effects = escalc(measure = "SMD",
+       m2i = uninfected_mean,
+       sd2i = uninfected_error,
+       n2i = uninfected_N,
+       m1i = infected_mean,
+       sd1i = infected_error, 
+       n1i = infected_N,
+       slab = id,
+       data = meta_data)
+
+res <- rma(yi, vi, data=effects)
+
+forest(res,
+       header="Study")
+```
+
+<img src="../Figures/markdown/unnamed-chunk-1-1.png" style="display: block; margin: auto;" />
 
 # Discussion
 
@@ -152,8 +188,3 @@ Alternatively, previous work shows reduced respiration rates in
 *Acartia* infested by bopyrids. Reduced basal metabolisms may improve
 thermal tolerance. Reduced metabolism may also hinder the thermal stress
 response though if ATP limitation affects the production of HSPs.
-
-# Other things to add
-
-Depending on the number of similar studies, it might be possible to add
-a small meta-analysis on the effects of parasitism on CTmax.

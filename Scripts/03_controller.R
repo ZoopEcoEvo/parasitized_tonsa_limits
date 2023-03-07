@@ -6,6 +6,7 @@ library(dabestr)
 
 #Determine which scripts should be run
 process_all_data = F #Runs data analysis 
+process_study_limits = F #Processes raw data from other studies for inclusion in the meta-analysis
 make_report = T #Runs project summary
 knit_manuscript = F #Compiles manuscript draft
 
@@ -17,6 +18,11 @@ source(file = "Scripts/01_data_processing.R")
 full_data = read.csv(file = "Output/Data/full_data.csv")
 ramp_record = read.csv(file = "Output/Data/ramp_record.csv")
 temp_record = read.csv(file = "Output/Data/temp_record.csv")
+meta_data = readxl::read_excel(path = "Data/literature/limit_data.xlsx")
+
+if(process_study_limits == T){
+  source(file = "Scripts/02_study_thermal_limits.R")
+}
 
 if(make_report == T){
   render(input = "Output/Reports/report.Rmd", #Input the path to your .Rmd file here

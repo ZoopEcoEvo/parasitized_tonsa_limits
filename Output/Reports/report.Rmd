@@ -77,7 +77,11 @@ bop_eff = dabest(full_data,
 
 bop_diff = mean_diff(bop_eff)
 
-plot(bop_diff)
+plot(bop_diff, 
+     rawplot.ylim = c(35.2, 37.6),
+     rawplot.markersize = 4,
+     rawplot.ylabel = "CTmax (degrees C)",
+     palette = c("darkseagreen", "mediumpurple4"))
 ```
 
 A linear mixed effect model also indicated no effect of bopyrid infestation. This model examined CTmax as a function of infestation status, with run number as a random effect.
@@ -102,7 +106,11 @@ bop_eff = dabest(subset,
 
 bop_diff = mean_diff(bop_eff)
 
-plot(bop_diff)
+plot(bop_diff, 
+     rawplot.ylim = c(35.2, 37.6),
+     rawplot.markersize = 4,
+     rawplot.ylabel = "CTmax (degrees C)",
+     palette = c("darkseagreen", "mediumpurple4"))
 ```
 
 With the three low values removed, a linear mixed effects model also indicates an effect of bopyrid infestation on CTmax.
@@ -113,6 +121,29 @@ sub_iso.model = nlme::lme(data = subset,
 kable(car::Anova(sub_iso.model))
 ```
 
+## Meta-Analysis
+
+I surveyed the literature to find other studies that examined the effect of parasitism on CTmax. I used strict inclusion criteria to maximize comparability (excluding studies that measured thermal limits in time to knockdown, or percent survivorship after static temperature exposure, etc.). A total of five previously published studies met these criteria.
+
+```{r}
+library(metafor)
+
+effects = escalc(measure = "SMD",
+       m2i = uninfected_mean,
+       sd2i = uninfected_error,
+       n2i = uninfected_N,
+       m1i = infected_mean,
+       sd1i = infected_error, 
+       n1i = infected_N,
+       slab = id,
+       data = meta_data)
+
+res <- rma(yi, vi, data=effects)
+
+forest(res,
+       header="Study")
+```
+
 # Discussion
 
 There was no effect of bopyrid infestation on the thermal limit of *Acartia tonsa* females. If several notably lower thermal limits were excluded, however, thermal limits appear to be higher in the infested copepods than in the non-infested individuals. In both cases (no difference or a small increase in thermal limits), this is contrary to our expectations that bopyrid infestation would reduce copepod thermal limits.
@@ -120,7 +151,3 @@ There was no effect of bopyrid infestation on the thermal limit of *Acartia tons
 The pattern observed is strongly affected by whether we include or exclude three notably lower thermal limit measurements in the infested treatment. The attached bopyrids varied in size within this treatment. Assuming individuals are not switching hosts, this means that females with larger bopyrids are likely older than females with smaller bopyrids. The three individuals with particularly low thermal limits had larger bopyrids; the low thermal limits may therefore reflect the older age of these females. However, unfortunately without proper equipment we were unable to take photographs of these individuals and their bopyrids in order to measure lengths.
 
 There are several potential explanations for an increase in thermal limits when parasitized. It's possible that HSP production is stimulated by infestation, thus priming copepods to respond to heat stress. Alternatively, previous work shows reduced respiration rates in *Acartia* infested by bopyrids. Reduced basal metabolisms may improve thermal tolerance. Reduced metabolism may also hinder the thermal stress response though if ATP limitation affects the production of HSPs.
-
-# Other things to add
-
-Depending on the number of similar studies, it might be possible to add a small meta-analysis on the effects of parasitism on CTmax.
