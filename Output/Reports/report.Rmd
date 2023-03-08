@@ -80,7 +80,7 @@ bop_diff = mean_diff(bop_eff)
 plot(bop_diff, 
      rawplot.ylim = c(35.2, 37.6),
      rawplot.markersize = 4,
-     rawplot.ylabel = "CTmax (degrees C)",
+     rawplot.ylabel = "CTmax (°C)",
      palette = c("darkseagreen", "mediumpurple4"))
 ```
 
@@ -109,7 +109,7 @@ bop_diff = mean_diff(bop_eff)
 plot(bop_diff, 
      rawplot.ylim = c(35.2, 37.6),
      rawplot.markersize = 4,
-     rawplot.ylabel = "CTmax (degrees C)",
+     rawplot.ylabel = "CTmax (°C)",
      palette = c("darkseagreen", "mediumpurple4"))
 ```
 

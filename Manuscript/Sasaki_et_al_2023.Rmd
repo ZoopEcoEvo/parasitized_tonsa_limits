@@ -1,0 +1,115 @@
+---
+output: 
+  pdf_document:
+    template: preprint_template.tex
+    fig_caption: true
+    keep_tex: false
+    citation_package: natbib
+  word_document: 
+    reference_docx: doc_template.docx
+title: "Not the weakest link: parasitism does not reduce thermal limits in the intermediate host of a Bopyrid isopod"
+author:
+  - name: Matthew Sasaki
+    affiliation: Department of Biology, University of Vermont
+    location: 
+  - name: Hans G. Dam
+    affiliation: Department of Marine Sciences, University of Connecticut
+    location: 
+abstract: "[Parasitism as an important interaction in a changing climate]; [Thermal limits]; [Copepods - challenges and opportunities]; [Testing the hypothesis that parasitism reduces thermal limits]; [Report a novel, highly portable method for measuring thermal limits in small organisms]; [Meta-analysis]; [Findings - No reduction of thermal limits in A. tonsa, contrary to the results of most studies on the effects of parasitism]; [Call to examine whether life history of the host and parasite interact to determine how parasitism affects thermal limits]"
+keywords: "Acartia tonsa, copepod, thermal tolerance, CTmax, parasitism, meta-analysis, data synthesis"
+contact: "**Correspondance**: matthew.sasaki@uvm.edu" 
+current: "This preprint is current as of `r format(Sys.time(), '%B %d, %Y')`"
+repo: "**Code**: https://github.com/ZoopEcoEvo/tonsa_infected_CTmax"
+bibliography: references.bib
+biblio-style: bib-style
+geometry: margin=1in
+fontsize: 10pt
+graphics: yes
+header-includes: 
+  \usepackage{caption}    
+  \captionsetup[figure]{font=small, margin=20pt, justification=centering}
+  \captionsetup[table]{font=small, margin=20pt, justification=centering}
+  \usepackage{float} \floatplacement{figure}{H} 
+  \newcommand{\beginsupplement}{\setcounter{table}{0}  \renewcommand{\thetable}{S\arabic{table}} \setcounter{figure}{0} \renewcommand{\thefigure}{S\arabic{figure}}}
+---
+
+```{r echo = F}
+knitr::opts_chunk$set(fig.align = "center")
+```
+
+# Introduction
+
+[Paragraph on parasitism and thermal limits].
+
+Copepods play important roles in coastal marine systems. *Acartia tonsa* is an especially prominent species across the coastal Western Atlantic [@turner1981]. This species is also the intermediate host for parasitic isopods (REF), some of which have substantial impacts on commercial species (REF). Previous work has shown that parasitism by isopod larvae reduces metabolic rates in *A. tonsa* [@anderson1975]. In other species of copepods, parasitism by isopod larvae induces infertility [@uye1997].
+
+In rapidly warming coastal systems (REF), parasitism-induced reductions in host thermal limits may have substantial effects on food web and biogeochemical dynamics. Given the important role *Acartia* copepods play in these systems, we aim to test the hypothesis that infestation by bopyrid isopod larvae would reduce thermal limits in *Acartia tonsa*. We also contextualize our findings using a meta-analysis of the effects of parasitism on critical thermal maxima.
+
+# Methods
+
+Critical thermal maxima (CT~max~) are measured using a dynamic ramping assay, and indicate the maximum temperature at which an individual can maintain normal activity [@lutterschmidt1997; @cowles1944]. These measurements are commonly used across a wide range of taxa [@bennett2018]. Copepod thermal limits are still relatively uncommon, however, despite their abundance, distribution, and ecological importance [@sasaki2021]. We have developed a highly portable system to assist with making thermal limit measurements in copepods and other small ectotherms, suitable for both rapid measurements made near field sites and for use in more controlled laboratory settings.
+
+The system has three components: a reservoir, a water bath, and a temperature sensor. We used a 5 gallon bucket covered with a neoprene sleeve as our reservoir. The reservoir is filled with \~20 L of water, which is slowly warmed using a 300 watt aquarium water heater. The reservoir also contains two aquarium pumps, one of which vigorously circulates water within the reservoir while the other pumps water from the reservoir into the water bath, which sits atop the reservoir. In this arrangement, the temperature ramping rate is determined by the interaction between the power output of the aquarium heater and the volume of water in the reservoir, enabling users to alter ramping rates by using heaters with different outputs. The water bath is a transparent plexiglass box that fits over the opening of the reservoir. Water is pumped up from the reservoir, flooding the water bath. A recession cut into one edge allows water to spill back into the reservoir. The water bath contains several test tube holders that are used to secure the experimental vessels (50 mL flat-bottom glass vials). Because the box is transparent, individuals are easily monitored through the side of the water bath throughout the trial, eliminating the necessity to remove experimental vessels and any resulting temperature fluctuations. The final component of this apparatus is a small Arduino computer system that logs temperature with three independent sensors at 5 second intervals. A detailed description of the sensor components and construction is provided in Supplemental Material. These sensors are small enough to be placed inside the glass vials, providing a continuous record of the temperatures throughout the assay. Data is written to a microUSB card for easy access. No horizontal gradients in temperature were detected within the water bath, and temperatures are averaged across the three sensors. A major advantage of this system is the portability - most of the components fit within the empty five gallon bucket, allowing for secure transport or shipping. The cost of the unit is also relatively low (\~\$400 per unit at the time of publication; see Supplementary Materials for a complete list of components).
+
+Copepods were collected from Key Largo, Florida in late February 2023 (25.283775N, -80.330165W; water temperature: 27°C; salinity: 27 psu). A substantial portion of adult *A. tonsa* females bore larvae of a bopyrid isopod attached to their prosome (Figure 1), likely *Probopyrus floridensis* [@dale1982]. After collection, the contents of the plankton tow were maintained at 22°C. An aquarium bubbler was used to ensure constant aeration. Mature *Acartia tonsa* females were sorted from the bulk contents of the plankton tow. Females with a bopyrid isopod larva attached to their prosome were kept separate. Individual thermal limits were measured in batches of ten (five each with and without isopods).
+
+```{r, figure1, echo = F, out.width = "300px"}
+#| fig.cap = "A mature Acartia tonsa female bearing a bopyrid isopod larva. Image was taken after returning from the field site using a _ microscope."
+
+knitr::include_graphics("../Background/Images/IMG_1347.jpeg") #Use this when filling in figures from analysis 
+```
+
+We selected a ramping rate of 0.1-0.3°C per minute. This ramping rate has been used previously to estimate CT~max~ in copepods [@harada2019; @jiang2009]. With our set up, water temperature ramping rates produced by a 300 watt heater in 20 L of water consistently fall within this range, decreasing from 0.3°C per second to 0.1°C per second by the end of the experiment due to imperfect insulation of the reservoir (Supp. Fig. X). To initiate each CT~max~ assay, ten copepods (five bearing isopods and five without) were placed individually into glass tubes with 10 mL of 0.2 um filtered seawater collected from the same location as the copepods. After a brief resting phase, the water heater was turned on, initiating the temperature ramp. Simultaneously, the temperature logger began to record temperature and a stop watch began recording the time passed. Individuals were then continuously monitored as water temperature increased. Copepods not actively moving were checked by rotating the glass vial, causing slight water movement. In active copepods, this stimulus is sufficient to elicit a jump response. The time at which an individual stopped responding to this stimulus was recorded (in minutes and seconds). In addition to the unresponsiveness, other indications that an individual had reached their CT~max~ were i) a sustained position on the floor of the vessel, ii) antennules that had curved inwards, were held flat against the prosome, or were held at abnormal backwards angles, and iii) a backwards arching of the urosome above the prosome. After the individual reached its CT~max~, the glass vial it was held in was removed from the water bath.
+
+Once the assay was completed, the recorded times were converted to individual CT~max~ values in °C, using the continuous temperature record logged by the Arduino system. We used this time-based method instead of directly monitoring the temperature for two reasons: 1) it was faster to record the time an individual stopped responding than to check the temperature readings from the three sensors, increasing the resolution of our measurements (since temperature increased continuously rather than in a step-wise manner); and 2) it reduced sub-conscious bias stemming from past knowledge or expectations about copepod thermal limits. To estimate CT~max~ we averaged the temperature readings from the three individual sensors during a period directly preceding the time the individual ceased responding to stimuli. This period reflects an "uncertainty window" for each measurement, extending from the time at which an individual was recorded as having stopped responding to stimulus to the last time the individual was checked. As it takes around 5 seconds to check each individual for a response, the duration of this uncertainty window was estimated for each individual as the number of vials remaining in the water bath when it reached its CT~max~, multiplied by 5 seconds. As such, the uncertainty window decreased in length as the trial went on, until, for the final individual, the window includes just the amount of time it took to check whether the individual had stopped responding.
+
+The CT~max~ values for the two groups (infected and non-infected) were compared using mean difference as an effect size estimate. Confidence intervals were estimated using non-parametric bootstrapping [@ho2019]. Since multiple replicate experiments were run and CT~max~ may have changed as time since collection increased, we also ran a linear mixed effects model, with CT~max~ modeled as a function of infection status with experimental replicate as a random effect.
+
+In order to compare the effects we observed here with previous work, we also conducted a small meta-analysis. Potential studies were obtained with a Web of Science search for "(CTmax OR"upper thermal limit" OR "thermal tolerance") AND parasit\*" on March 6th, 2023. This yielded 132 results, which were individually screened for inclusion in the meta-analysis. In order to be included, a study must have reported CT~max~ values for both infected and uninfected host animals. We used strict inclusion criteria to maximize comparability (excluding studies that measured thermal limits in time to knockdown, or percent survivorship after static temperature exposure, etc.). A total of five previously published studies met these criteria. Mean thermal limits, standard deviations, and sample sizes were extracted from the study text or tables, or were manually calculated using the raw data. We then estimated standardized mean difference (SMD) and 95% confidence interval for each comparison between infected and non-infected animals using the *metafor* package [@viechtbauer2010].
+
+# Results
+
+Contrary to expectations, we did not observe a decrease in thermal limits in the infected copepods (Figure 2). Instead, the observed effect of bopyrid parasitism on CT~max~ was slightly positive, with a confidence interval that strongly overlapped zero (mean difference: 0.102; 95CI -0.211 - 0.353). The linear mixed effect model also indicated no effect of bopyrid infestation. This result is strongly affected by three parasitized individuals with substantially lower thermal limits. When these thermal limits are removed, there is a small positive effect of infection (mean effect: 0.295; 95CI 0.0983 - 0.509). With the three low values removed, the linear mixed effects model also indicates an effect of bopyrid infestation on CT~max~.
+
+```{r, figure2, echo = F, out.width = "350px"}
+#| fig.cap = "Estimation plot showing observed CTmax values and the estimated effect of parasitism. The three low thermal limits that were excluded are shown as empty symbols, and are not included in the sample sizes."
+
+knitr::include_graphics("../Output/Figures/affinity/Artboard1.png") #Use this when filling in figures from analysis 
+```
+
+Five studies met our criteria for inclusion in the meta-analysis, yielding 15 contrasts between an infected and uninfected host animal. In cases were studies reported multiple experimental treatments (ex - ramping rates) only one set of measurements was included, selected to represent intermediate conditions. The studies included in the meta-analysis generally focused on amphibian parasitization by fungal or protistan parasites [@sherman2008; @greenspan2017; @fernandez-loras2019], but also included studies examining an arthropod host and bacterial parasite [@hector2019], and, as examined in this study, an arthropod host with an arthropod parasite [@agosta2018]. These studies generally reported a negative effect of parasitism on CT~max~, although in several cases confidence intervals overlapped zero (Figure 3). It's worth noting that each of the five previous studies included in this analysis examined the effect of parasites on their final host, while *A. tonsa* is the intermediate host for this isopod.
+
+```{r, figure3, echo = F, out.width = "350px"}
+#| fig.cap = "A forest plot showing the standardized mean difference estimate for each comparison of CTmax for infected and non-infected hosts, along with the 95 percent confidence interval. The size of each point is proportional to the weight of each contrast. The diamond at the bottom of the plot summarizes the overall effect estimate. "
+
+knitr::include_graphics("../Output/Figures/markdown/forest-plot-1.pdf") #Use this when filling in figures from analysis 
+```
+
+# Discussion
+
+We observed that parasitism does not have a strong negative effect on the thermal limits of *Acartia tonsa* females. This was contrary to both our expectations and to the results of the small number of previously published studies on the effects of parasitism on the critical thermal limits of a host.
+
+The pattern observed is strongly affected by whether we include or exclude three notably lower thermal limit measurements in the infested treatment. The attached bopyrids varied in size within this treatment. Assuming individuals are not switching hosts, this means that females with larger bopyrids are likely older than females with smaller bopyrids. The three individuals with particularly low thermal limits had larger bopyrids; the low thermal limits may therefore reflect the older age of these females. Unfortunately we lacked the required equipment to take photographs of these individuals and their bopyrids while CTmax measurements were being made. We are therefore unable to test for this correlation between larval length and host CTmax.
+
+There are several potential explanations for an increase in thermal limits when parasitized. It's possible that HSP production is stimulated by infestation, thus priming copepods to respond to heat stress. Alternatively, previous work shows reduced respiration rates in *Acartia* infested by bopyrids. Reduced basal metabolisms may extend the host lifespan, ensuring sufficient time for the isopod to complete development. Reduced metabolism may also hinder the thermal stress response though if ATP limitation affects the production of HSPs.
+
+Parasites often have complex life cycles, relying on one or more intermediate hosts before infecting their final host. The different infection dynamics across parasite life stage might be expected to modify the effect of infection on host CT~max~. Parasitism, regardless of stage, often results in physiological changes to the host system. In a variable thermal environment, reduction of host thermal limits by infection could results in a strong disruption to the parasite's development if temperature fluctuations result in host mortality. It may be beneficial, therefore, for parasites to manipulate host thermal limits in such a way to make these disruptions less likely. Parasites may also manipulate host thermal physiology to directly benefit themselves. Aphids serving as a vector for a plant virus (analogous to an intermediate host), for example, had increased thermal limits, allowing them to exploit warmer microhabitats than competitors, aiding in the spread of the virus (REF). In animal parasites, shifts in host preference toward warmer temperatures may speed up parasite development (REF).
+
+\newpage
+
+```{=tex}
+\beginsupplement
+```
+# Supplementary Material
+
+```{r, supp-table1, echo = F}
+subset = full_data %>%  
+  filter(ctmax > 36) 
+
+sub_iso.model = nlme::lme(data = subset, 
+                      fixed = ctmax ~ bopyrid, random = ~1|run)
+
+knitr::kable(car::Anova(sub_iso.model), 
+      digits = 3, align = "c",
+      caption = "ANOVA results of the linear mixed effects model examining variation in CTmax as a function of infection status. CTmax assay was included as a random effect.")
+```

@@ -7,7 +7,7 @@ library(dabestr)
 #Determine which scripts should be run
 process_all_data = F #Runs data analysis 
 process_study_limits = F #Processes raw data from other studies for inclusion in the meta-analysis
-make_report = T #Runs project summary
+make_report = F #Runs project summary
 knit_manuscript = T #Compiles manuscript draft
 
 source(file = "Scripts/01_data_processing.R")
@@ -35,7 +35,7 @@ if(make_report == T){
 ##################################
 
 if(knit_manuscript == T){
-  render(input = "Manuscript/manuscript_name.Rmd", #Input the path to your .Rmd file here
+  render(input = "Manuscript/Sasaki_et_al_2023.Rmd", #Input the path to your .Rmd file here
          output_file = paste("dev_draft_", Sys.Date(), sep = ""), #Name your file here; as it is, this line will create reports named with the date
                                                                   #NOTE: Any file with the dev_ prefix in the Drafts directory will be ignored. Remove "dev_" if you want to include draft files in the GitHub repo
          output_dir = "Output/Drafts/", #Set the path to the desired output directory here
