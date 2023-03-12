@@ -1,7 +1,7 @@
 Figures for: Parasitism does not reduce thermal limits in the
 intermediate host of a Bopyrid isopod
 ================
-2023-03-10
+2023-03-11
 
 - <a href="#main-figures" id="toc-main-figures">Main Figures</a>
 - <a href="#supplementary-figures"
@@ -109,7 +109,7 @@ temp_trace = ggplot(filter(temp_record, minute_passed < max(full_data$time) + 2)
   theme(legend.position = "right")
 
 
-ramp_rates = ggplot(ramp_record, aes(x = minute_interval, y = ramp_per_minute)) + 
+ramp_rates = ggplot(ramp_record, aes(x = minute_interval, y = ramp_per_minute, group = run)) + 
   geom_hline(yintercept = 0.3) + 
   geom_hline(yintercept = 0.1) + 
   geom_point(alpha = 0.5, colour = "grey") + 
