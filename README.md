@@ -1,6 +1,6 @@
 **"Parasitism does not reduce thermal limits in the intermediate host of a Bopyrid isopod"**  
-Matthew Sasaki - Department of Biology, University of Vermont 
-Charles Woods - Department of Marine Sciences, University of Connecticut  
+Matthew Sasaki - Department of Biology, University of Vermont   
+Charles Woods - Department of Marine Sciences, University of Connecticut      
 Hans G. Dam - Department of Marine Sciences, University of Connecticut  
 
 *Corresponding author: matthew.sasaki@uvm.edu 
