@@ -7,7 +7,7 @@ library(dabestr)
 #Determine which scripts should be run
 process_all_data = F #Runs data analysis 
 process_study_limits = F #Processes raw data from other studies for inclusion in the meta-analysis
-make_report = F #Runs project summary
+make_figures = F #Runs project summary
 knit_manuscript = T #Compiles manuscript draft
 
 source(file = "Scripts/01_data_processing.R")
@@ -24,7 +24,7 @@ if(process_study_limits == T){
   source(file = "Scripts/02_study_thermal_limits.R")
 }
 
-if(make_report == T){
+if(make_figures == T){
   render(input = "Output/Reports/report.Rmd", #Input the path to your .Rmd file here
          #output_file = "report", #Name your file here if you want it to have a different name; leave off the .html, .md, etc. - it will add the correct one automatically
          output_format = "all")
