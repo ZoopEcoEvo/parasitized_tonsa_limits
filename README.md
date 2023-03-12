@@ -1,9 +1,9 @@
 **"Parasitism does not reduce thermal limits in the intermediate host of a Bopyrid isopod"**  
-Matthew Sasaki - Department of Biology, University of Vermont
-Charles Woods - Department of Marine Sciences, University of Connecticut
-Hans G. Dam - Department of Marine Sciences, University of Connecticut
+Matthew Sasaki - Department of Biology, University of Vermont 
+Charles Woods - Department of Marine Sciences, University of Connecticut  
+Hans G. Dam - Department of Marine Sciences, University of Connecticut  
 
-*Corresponding author: matthew.sasaki@uvm.edu
+*Corresponding author: matthew.sasaki@uvm.edu 
 
 This study examines the effects of parasitism on critical thermal maxima of host organisms, combining empirical results with a meta-analytic examination of previous studies. Thermal limits were assayed using dynamic ramping assays, and examined the upper thermal limits of the copepod *Acartia tonsa* infested with larvae of a parasitic isopod in the family Bopyridae. 
 
@@ -17,9 +17,9 @@ The Data directory contains three sub-directories, each containing a separate ty
 
 
 **--- Versioning and Environment ---**  
-R version 4.2.2 (2022-10-31)
-Platform: x86_64-apple-darwin17.0 (64-bit)
-Running under: macOS Ventura 13.2.1
+R version 4.2.2 (2022-10-31)    
+Platform: x86_64-apple-darwin17.0 (64-bit)    
+Running under: macOS Ventura 13.2.1   
 
 attached base packages:
 stats; graphics; grDevices; utils; datasets; methods; base 
@@ -52,7 +52,7 @@ The workflow is operated via the 03_controller.R script in the Scripts directory
   4) The manuscript file (located in the Manuscripts directory) should be knit. This markdown file will produce a formatted PDF version of the manuscript that can be posted on a preprint server along with a word document that can be sent to co-authors. 
   
 
-**--- Licensing and Funding ---** 
-Provide license information, such as Creative Commons open source license language granting readers the right to reuse code. For more information on how to choose and write a license, see choosealicense.com or https://opendatacommons.org
+**--- Licensing and Funding ---**   
+Unless otherwise noted, the data provided here is available under the Creative Commons Attribution 4.0 International License, and the code is available under the MIT License.
 
-list funding sources used to generate the archived data, and include information about permits (collection, animal care, human research). 
+Data collection was supported by NSF OCE1947965 and a University of Connecticut Postdoc Seed Award. 
