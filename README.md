@@ -1,4 +1,4 @@
-**"Parasitism does not reduce thermal limits in the intermediate host of a Bopyrid isopod"**  
+**Data and Code: Parasitism does not reduce thermal limits in the intermediate host of a Bopyrid isopod**  
 Matthew Sasaki - Department of Biology, University of Vermont   
 Charles Woods - Department of Marine Sciences, University of Connecticut      
 Hans G. Dam - Department of Marine Sciences, University of Connecticut  
@@ -45,8 +45,8 @@ boot_1.3-28; R6_2.5.1; compiler_4.2.2
 **--- Workflow ---**  
 Critical Thermal Maxima (CTmax) values are estimated from the recorded time data (when the individual ceased responding to stimuli during the experiment, recorded in minutes and seconds) using the continuous temperature record. Each measurement is associated with an uncertainty window, defined as the number of tubes remaining with responsive copepods multiplied by five seconds (how long it takes to check the individual for responsiveness). CTmax is estimated as the average temperature across all three of the temperature sensors during the uncertainty window.
 
-The workflow is operated via the 03_controller.R script in the Scripts directory. At the top of this script, you are able to indicate whether: 
-  1) the time and temperature data should be processed to estimate CTmax values (process_all_data; when set to F, only new sets of temperature and time data will be analyzed). 
+The workflow is operated via the 03_controller.R script in the Scripts directory. It is not recommended that you run analyses or knit documents from the files themselves as the file paths are internally set and may not be correct otherwise. At the top of this script, you are able to indicate whether: 
+  1) The time and temperature data should be processed to estimate CTmax values (process_all_data; when set to F, only new sets of temperature and time data will be analyzed). 
   2) The raw data from previous studies should be analyzed to produce mean, standard deviation, and sample size values for use in the meta-analysis.
   3) The summary file (located in the Output/Reports directory) should be knit. This markdown file will generate the figures used in the manuscript, as well as an HTML and a GitHub flavored markdown document. 
   4) The manuscript file (located in the Manuscripts directory) should be knit. This markdown file will produce a formatted PDF version of the manuscript that can be posted on a preprint server along with a word document that can be sent to co-authors. 
