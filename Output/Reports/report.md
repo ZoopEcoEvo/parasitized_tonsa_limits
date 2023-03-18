@@ -1,7 +1,7 @@
 Figures for: Parasitism does not reduce thermal limits in the
 intermediate host of a Bopyrid isopod
 ================
-2023-03-11
+2023-03-16
 
 - <a href="#main-figures" id="toc-main-figures">Main Figures</a>
 - <a href="#supplementary-figures"
@@ -69,6 +69,12 @@ kable(car::Anova(sub_iso.model))
 ``` r
 library(metafor)
 
+meta_data = meta_data %>% 
+  group_by(id) %>% 
+  mutate("number" = row_number(),
+         "alpha" = letters[number],
+  contrast_id = paste(id, alpha, sep = " "))
+  
 effects = escalc(measure = "SMD",
        m2i = uninfected_mean,
        sd2i = uninfected_error,
@@ -76,7 +82,7 @@ effects = escalc(measure = "SMD",
        m1i = infected_mean,
        sd1i = infected_error, 
        n1i = infected_N,
-       slab = id,
+       slab = contrast_id,
        data = meta_data)
 
 res <- rma(yi, vi, data=effects)
@@ -90,6 +96,7 @@ forest(res,
 # Supplementary Figures
 
 ``` r
+
 temp_trace = ggplot(filter(temp_record, minute_passed < max(full_data$time) + 2), 
        aes(x = minute_passed, y = temp_C, group = factor(run))) + 
   geom_abline(slope = 0.3, 
@@ -109,11 +116,11 @@ temp_trace = ggplot(filter(temp_record, minute_passed < max(full_data$time) + 2)
   theme(legend.position = "right")
 
 
-ramp_rates = ggplot(ramp_record, aes(x = minute_interval, y = ramp_per_minute, group = run)) + 
+ramp_rates = ggplot(ramp_record, aes(x = minute_interval, y = ramp_per_minute)) + 
   geom_hline(yintercept = 0.3) + 
   geom_hline(yintercept = 0.1) + 
-  geom_point(alpha = 0.5, colour = "grey") + 
-  geom_smooth(linewidth = 2, colour = "black") + 
+  geom_point(alpha = 0.5, colour = "grey", shape = 1, stroke = 0.5) + 
+  geom_smooth(linewidth = 1.5, colour = "black") + 
   ylim(0,0.4) + 
   labs(y = "Ramp Rate (deg. C / min.)",
        x = "Time into run (minute)") + 
