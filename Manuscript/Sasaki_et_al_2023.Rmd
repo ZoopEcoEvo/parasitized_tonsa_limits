@@ -29,8 +29,8 @@ fontsize: 10pt
 graphics: yes
 header-includes: 
   \usepackage{caption}    
-  \captionsetup[figure]{font=small, margin=20pt, justification=centering}
-  \captionsetup[table]{font=small, margin=20pt, justification=centering}
+  \captionsetup[figure]{font=footnotesize, margin=20pt, justification=centering}
+  \captionsetup[table]{font=footnotesize, margin=20pt, justification=centering}
   \usepackage{float} \floatplacement{figure}{H} 
   \newcommand{\beginsupplement}{\setcounter{table}{0}  \renewcommand{\thetable}{S\arabic{table}} \setcounter{figure}{0} \renewcommand{\thefigure}{S\arabic{figure}}}
 ---
@@ -65,7 +65,13 @@ knitr::include_graphics("../Background/Images/IMG_1347.jpeg") #Use this when fil
 
 Critical thermal maxima (CT~max~) are measured using a dynamic ramping assay, and indicate the maximum temperature at which an individual can maintain normal activity [@cowles1944; @lutterschmidt1997]. These measurements are commonly used across a wide range of taxa [@bennett2018]. Copepod thermal limit measurements are still relatively uncommon, however, despite their high abundance, widespread distribution, and ecological importance [@sasaki2021].
 
-We have developed a highly portable system to assist with making thermal limit measurements in copepods and other small ectotherms, suitable for both rapid measurements under field conditions or controlled laboratory settings. The system has three components: a reservoir, a water bath, and a temperature sensor (Supp. Fig. 1). We used a 5-gallon bucket covered with a neoprene sleeve as our reservoir. The reservoir is filled with \~15 L of water, which is slowly warmed using a 300-watt aquarium water heater. Temperature ramping rate is determined by the interaction between the power output of the aquarium heater and the volume of water in the reservoir, enabling users to alter ramping rates to suit their needs. The reservoir also contains two aquarium pumps, one of which vigorously circulates water within the reservoir while the other pumps water from the reservoir into the water bath, which sits atop the reservoir. The water bath is a transparent plexiglass box that fits over the opening of the reservoir. Water is pumped up from the reservoir, flooding the water bath. A recession cut into one edge allows water to spill back into the reservoir. The water bath contains several test tube racks that are used to secure the experimental vessels (50 mL flat-bottom glass vials). Because the box is transparent, individuals are easily monitored through the side of the water bath throughout the trial, eliminating the necessity to remove experimental vessels and any resulting temperature fluctuations. A small Arduino computer system logs temperature with three independent sensors at 5 second intervals. A detailed description of the sensor components and construction is provided in Supplemental Material. These sensors are small enough to be placed inside the glass vials, providing a continuous record of the temperatures throughout the assay. The data are stored on a microUSB card for easy access. A major advantage of this system is the portability - most of the components fit within the empty five-gallon bucket, allowing for secure transport or shipping. The cost of the unit is also relatively low. All required materials, code, and technical specifications are maintained in a separate data repository (<https://github.com/ZoopEcoEvo/CTmax_device>).
+```{r figure2, echo = F, out.width="350px"}
+#| fig.cap = "The different components of the setup used to measure CTmax values. The reservoir contains two water pumps and a 300-watt fixed output heating element. Pump 1 is placed parallel to the base of the reservoir and vigorously circulates the water. Pump 2 is used to move water from the reservoir up into the water bath. As the bath is flooded, water spills back over into the reservoir through a cutout in the front face. The water bath contains several test tube racks which hold the experimental vessels (50 mL flat-bottom glass tubes) in place. Several other of these tubes are placed throughout the bath to hold the temperature sensors. Temperature is recorded by these three sensors to a data logger, run by a small Arduino computer system. A small light source is attached across from the experimental vessels to provide backlighting for the experimental vessels, assisting with observation during the experiment."
+
+knitr::include_graphics("../Output/Figures/affinity/schematicArtboard1.pdf") 
+```
+
+We have developed a highly portable system to assist with making thermal limit measurements in copepods and other small ectotherms, suitable for both rapid measurements under field conditions or controlled laboratory settings. The system has three components: a reservoir, a water bath, and a temperature sensor (Figure 2). We used a 5-gallon bucket covered with a neoprene sleeve as our reservoir. The reservoir is filled with \~15 L of water, which is slowly warmed using a 300-watt aquarium water heater. Temperature ramping rate is determined by the interaction between the power output of the aquarium heater and the volume of water in the reservoir, enabling users to alter ramping rates to suit their needs. The reservoir also contains two aquarium pumps, one of which vigorously circulates water within the reservoir while the other pumps water from the reservoir into the water bath, which sits atop the reservoir. The water bath is a transparent plexiglass box that fits over the opening of the reservoir. Water is pumped up from the reservoir, flooding the water bath. A recession cut into one edge allows water to spill back into the reservoir. The water bath contains several test tube racks that are used to secure the experimental vessels (50 mL flat-bottom glass vials). Because the box is transparent, individuals are easily monitored through the side of the water bath throughout the trial, eliminating the necessity to remove experimental vessels and any resulting temperature fluctuations. A small Arduino computer system logs temperature with three independent sensors at 5 second intervals. These sensors are small enough to be placed inside the glass vials, providing a continuous record of the temperatures throughout the assay. The data are stored on a microUSB card for easy access. All required materials, code, and technical specifications are maintained in a separate data repository (<https://github.com/ZoopEcoEvo/CTmax_device>). A major advantage of this system is the portability - most of the components fit within the empty five-gallon bucket, allowing for secure transport or shipping. The cost of the unit is also relatively low.
 
 ## Measuring CT~max~
 
@@ -85,28 +91,26 @@ In order to compare the effects we observed here with previous work, we also con
 
 ## CT~max~ Values
 
-Using the set up described above, we were able to gradually increase the temperature of the water within the vials (Figure 2a). Ramping rates are always within a 0.1-0.3°C per minute range, but due to the imperfect insulation of the reservoir, these rates decreased slightly over time from \~0.25°C to \~0.2°C (Figure 2b). Contrary to expectations, we did not observe a decrease in thermal limits in the infested copepods (Figure 3). Instead, the observed effect of bopyrid infestation on CT~max~ was slightly positive, with a confidence interval that strongly overlapped zero (mean difference: 0.1°C; 95% CI -0.21°C to 0.35°C). The linear mixed effect model also indicated no effect of bopyrid infestation (p = 0.48). This result is strongly affected by three parasitized individuals with substantially lower thermal limits (Figure 3). When these thermal limits are removed, there is a small positive effect of infestation (mean effect: 0.3°C; 95% CI 0.098°C to 0.51°C). With the three low values removed, the linear mixed effects model also indicates a positive effect of bopyrid infestation on CT~max~ (p = 0.006).
+Using the set up described above, we were able to gradually increase the temperature of the water within the vials (Figure 3a). Ramping rates are always within a 0.1-0.3°C per minute range, but due to the imperfect insulation of the reservoir, these rates decreased slightly over time from \~0.25°C to \~0.2°C (Figure 3b). Contrary to expectations, we did not observe a decrease in thermal limits in the infested copepods (Figure 4). Instead, the observed effect of bopyrid infestation on CT~max~ was slightly positive, with a confidence interval that strongly overlapped zero (mean difference: 0.1°C; 95% CI -0.21°C to 0.35°C). The linear mixed effect model also indicated no effect of bopyrid infestation (p = 0.48). This result is strongly affected by three parasitized individuals with substantially lower thermal limits (Figure 4). When these thermal limits are removed, there is a small positive effect of infestation (mean effect: 0.3°C; 95% CI 0.098°C to 0.51°C). With the three low values removed, the linear mixed effects model also indicates a positive effect of bopyrid infestation on CT~max~ (p = 0.006).
 
-```{r, figure2, echo = F, out.width="350px"}
+```{r, figure3, echo = F, out.width="350px"}
 #| fig.cap = "Temperature data from each of the four CTmax assays. A) The average temperature recorded across the three sensors over time. Triangular points indicate the points at which individuals were observed to reach their critical thermal maximum. B) The ramping rate observed during the CTmax assays. Temperature data were binned to minute intervals. The ramping rate was then calculated as the linear change over time using all measurements recorded by the three sensors within that minute interval."
 
 knitr::include_graphics("../Output/Figures/markdown/supp-fig-1-1.pdf") 
 ```
 
-```{r, figure3, echo = F, out.width = "300px"}
+```{r, figure4, echo = F, out.width = "220px"}
 #| fig.cap = "Estimation plot showing observed CTmax values and the estimated effect of infestation. Infestation status is represented using different colored points (no bopyrid in green; with a bopyrid (yes) in purple). The three low thermal limits that were excluded are shown as unfilled symbols within the infested group, and are not included in the sample sizes."
 
 knitr::include_graphics("../Output/Figures/affinity/Artboard1.png") #Use this when filling in figures from analysis 
 ```
 
-\newpage
-
 ## Meta-Analysis
 
-Five studies met our criteria for inclusion in the meta-analysis, yielding 15 contrasts between parasitized and unparasitized host animals. The studies included in the meta-analysis generally focused on amphibian parasitization by fungal or protistan parasites [@fernandez-loras2019; @greenspan2017; @sherman2008], but also included studies examining an arthropod host and bacterial parasite [@hector2019], and, as examined in our study, an arthropod host with an arthropod parasite [@agosta2018]. These studies generally reported a negative effect of parasitism on CT~max~, although in several cases confidence intervals overlapped zero (Figure 4). It is worth noting that each of the five previous studies included in this analysis examined the effect of parasites on their final host, while *Acartia tonsa* is the intermediate host for this isopod.
+Five studies met our criteria for inclusion in the meta-analysis, yielding 15 contrasts between parasitized and unparasitized host animals. The studies included in the meta-analysis generally focused on amphibian parasitization by fungal or protistan parasites [@fernandez-loras2019; @greenspan2017; @sherman2008], but also included studies examining an arthropod host and bacterial parasite [@hector2019], and, as examined in our study, an arthropod host with an arthropod parasite [@agosta2018]. These studies generally reported a negative effect of parasitism on CT~max~, although in several cases confidence intervals overlapped zero (Figure 5). Note that each of the five previous studies examined the effect of parasites on their final host, while *A. tonsa* is the intermediate host for this isopod.
 
-```{r, figure4, echo = F, out.width = "350px"}
-#| fig.cap = "A forest plot showing the standardized mean difference estimate for each comparison of CTmax for infected and non-infected hosts, along with the 95 percent confidence interval. Each individual contrast from studies that included multiple host/pathogen species, life stages, etc. are indicated by different letters following the study ID. The size of each point is proportional to the weight of each contrast. The diamond at the bottom of the plot summarizes the overall effect estimate."
+```{r, figure5, echo = F, out.width = "250px"}
+#| fig.cap = "A forest plot showing the standardized mean difference estimate for each comparison of CTmax in infected and non-infected hosts, along with the 95 percent confidence interval. Multiple contrasts from the same study are indicated by different letters following the study ID. The size of each point is proportional to the weight of each contrast. The diamond at the bottom of the plot summarizes the overall effect estimate."
 
 knitr::include_graphics("../Output/Figures/markdown/forest-plot-1.pdf") #Use this when filling in figures from analysis 
 ```
@@ -124,16 +128,3 @@ The lack of a strong negative effect of parasitism on CT~max~ in *Acartia tonsa*
 # Acknowledgements
 
 We thank Ewaldo Leitao and Dail Laughinghouse for providing assistance and laboratory space while collecting animals and running experiments. This work was supported by the National Science Foundation [award numbers 1947965 and 2205848] and a Postdoctoral Seed Award from the University of Connecticut. 
-
-\newpage
-
-```{=tex}
-\beginsupplement
-```
-# Supplementary Material
-
-```{r supp-fig-1, echo = F, out.width="350px"}
-#| fig.cap = "The different components of the setup used to measure CTmax values. The reservoir contains two water pumps and a 300-watt fixed output heating element. Pump 1 is placed parallel to the base of the reservoir and vigorously circulates the water. Pump 2 is used to move water from the reservoir up into the water bath. As the bath is flooded, water spills back over into the reservoir through a cutout in the front face. The water bath contains several test tube racks which hold the experimental vessels (50 mL flat-bottom glass tubes) in place. Several other of these tubes are placed throughout the bath to hold the temperature sensors. Temperature is recorded by these three sensors to a data logger, run by a small Arduino computer system. A small light source is attached across from the experimental vessels to provide backlighting for the experimental vessels, assisting with observation during the experiment."
-
-knitr::include_graphics("../Output/Figures/affinity/schematicArtboard1.pdf") 
-```
