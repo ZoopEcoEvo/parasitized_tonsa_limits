@@ -97,6 +97,12 @@ iso.model = nlme::lme(data = full_data,
 kable(car::Anova(iso.model))
 ```
 
+```{r outlier-test}
+full_data %>%  
+  group_by(bopyrid) %>% 
+  rstatix::identify_outliers(ctmax)
+```
+
 ```{r sub-lme-model}
 sub_iso.model = nlme::lme(data = subset, 
                       fixed = ctmax ~ bopyrid, random = ~1|run)
