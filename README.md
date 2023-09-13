@@ -11,6 +11,9 @@ This study examines the effects of parasitism on critical thermal maxima of host
 
 Animals were collected from a site in Key Largo, Florida (25.283775N, -80.330165W) on February 26th 2023. Thermal limit data was collected from February 27th to March 1st 2023. The meta-analysis was performed between March 6th and March 10th 2023. Thermal limit measurements and the meta-analytic data set were collected and analyzed by Matthew Sasaki. The design and construction of the Arduino temperature logger was led by Charles Woods.  
 
+The published paper is available here: https://doi.org/10.1016/j.jtherbio.2023.103712   
+A preprint version of the manuscript can be found here: https://doi.org/10.1101/2023.03.31.535176   
+
 ## Directory Structure 
 The root directory contains the README and Licensing files, along with a .Rproj file and four sub-directories: Data, Manuscript, Output, and Scripts.  
 
