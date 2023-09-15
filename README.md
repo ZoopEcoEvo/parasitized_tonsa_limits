@@ -24,7 +24,7 @@ The root directory contains the README and Licensing files, along with a .Rproj 
 -   `Output/` contains the various products of the project (processed data, figures, knit reports, and a PDF copy of the manuscript. Note, the `Reports/` directory contains the R Markdown file used to generate the figures used in the manuscript.  
 
 -   `Scripts/` contains three R scripts. 
-    -   `01_data_processing.R` is used to process the raw data. The primary components of this analysis are ____.
+    -   `01_data_processing.R` is used to process the raw data. The primary component of this analysis is the estimation of thermal limits from a continuous temperature record.
     -   `02_study_thermal_limits` is used to re-analyze raw data from previously published studies in order to generate the effect sizes for the meta-analytic component of this project.
     -   `03_controller.R` is use to control the project workflow. Through this script, you can choose to process the experimental and meta-analytic data, make the figures, or knit the manuscript. This script should be used rather than running isolated fragments individually. 
  
