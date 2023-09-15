@@ -7,16 +7,12 @@ Matthew Sasaki<sup>1,2</sup>, Charles Woods<sup>2</sup>, Hans G. Dam<sup>2</sup>
    
 *Corresponding author: matthew.sasaki@uvm.edu   
 
+
+<a href="https://doi.org/10.1016/j.jtherbio.2023.103712"><img src="https://img.shields.io/badge/Publication%20Here-Here?style=for-the-badge&labelColor=grey&color=blue"/></a>    <a href="https://doi.org/10.1101/2023.03.31.535176"><img src="https://img.shields.io/badge/Preprint%20Here-Here?style=for-the-badge&labelColor=grey&color=red"/></a>
+
 This study examines the effects of parasitism on critical thermal maxima of host organisms, combining empirical results with a meta-analytic examination of previous studies. Experiments examined the upper thermal limits of the copepod *Acartia tonsa* infested with larvae of a parasitic isopod in the family Bopyridae using a dynamic ramping assay. As part of this, we developed a novel, highly portable device for measuring CTmax of small organisms.    
 
 Animals were collected from a site in Key Largo, Florida (25.283775N, -80.330165W) on February 26th 2023. Thermal limit data was collected from February 27th to March 1st 2023. The meta-analysis was performed between March 6th and March 10th 2023. Thermal limit measurements and the meta-analytic data set were collected and analyzed by Matthew Sasaki. The design and construction of the Arduino temperature logger was led by Charles Woods.  
-
-![Static Badge](https://img.shields.io/badge/https%3A%2F%2Fdoi.org%2F10.1016%2Fj.jtherbio.2023.103712-end?style=for-the-badge&label=Publication&labelColor=blue&color=grey&link=https%3A%2F%2Fdoi.org%2F10.1016%2Fj.jtherbio.2023.103712)
-
-![Static Badge](https://img.shields.io/badge/https%3A%2F%2Fdoi.org%2F10.1101%2F2023.03.31.535176-end?style=for-the-badge&label=Preprint&labelColor=red&color=grey&link=https%3A%2F%2Fdoi.org%2F10.1101%2F2023.03.31.535176)
-
-The published paper is available here: https://doi.org/10.1016/j.jtherbio.2023.103712   
-A preprint version of the manuscript can be found here: https://doi.org/10.1101/2023.03.31.535176   
 
 ## Directory Structure 
 The root directory contains the README and Licensing files, along with a .Rproj file and four sub-directories: Data, Manuscript, Output, and Scripts.  
