@@ -8,7 +8,7 @@ Matthew Sasaki<sup>1,2</sup>, Charles Woods<sup>2</sup>, Hans G. Dam<sup>2</sup>
 *Corresponding author: matthew.sasaki@uvm.edu   
 
 
-<a href="https://doi.org/10.1016/j.jtherbio.2023.103712"><img src="https://img.shields.io/badge/Publication%20Here-Here?style=for-the-badge&labelColor=grey&color=blue"/></a>    <a href="https://doi.org/10.1101/2023.03.31.535176"><img src="https://img.shields.io/badge/Preprint%20Here-Here?style=for-the-badge&labelColor=grey&color=red"/></a>
+<a href="https://doi.org/10.1016/j.jtherbio.2023.103712"><img src="https://img.shields.io/badge/Publication%20Here-Here?style=for-the-badge&labelColor=grey&color=blue"/></a>    <a href="https://doi.org/10.1101/2023.03.31.535176"><img src="https://img.shields.io/badge/Preprint%20Here-Here?style=for-the-badge&labelColor=grey&color=red"/></a>   <a href="https://doi.org/10.5281/zenodo.14037360"><img src="https://img.shields.io/badge/Dataset%20Here-Here?style=for-the-badge&labelColor=grey&color=EAB221"/></a>
 
 This study examines the effects of parasitism on critical thermal maxima of host organisms, combining empirical results with a meta-analytic examination of previous studies. Experiments examined the upper thermal limits of the copepod *Acartia tonsa* infested with larvae of a parasitic isopod in the family Bopyridae using a dynamic ramping assay. As part of this, we developed a novel, highly portable device for measuring CTmax of small organisms.    
 
